@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
-User = get_user_model()
+from django.contrib.auth.models import Group, User
 
 
 class Stock(models.Model):
@@ -30,5 +30,5 @@ class Equipment(models.Model):
         "Stock", on_delete=models.PROTECT, verbose_name="Склад хранения"
     )
     user = models.ForeignKey(
-        "User", on_delete=models.PROTECT, verbose_name="Владелец оборудования"
+        User, on_delete=models.PROTECT, verbose_name="Владелец оборудования"
     )

@@ -1,8 +1,9 @@
+from django.contrib.auth import get_user_model
 from django.shortcuts import render
 from rest_framework import viewsets, permissions
 from .models import Stock, Category, Equipment
 from .serializers import StockSerializer, CategorySerializer, EquipmentSerializer, UserSerializer
-from django.contrib.auth.models import User
+from django.contrib.auth.models import Group, User
 
 
 class StockViewSet(viewsets.ViewSet):
@@ -24,7 +25,7 @@ class EquipmentViewSet(viewsets.ViewSet):
 
 
 class UserViewSet(viewsets.ViewSet):
-    queryset = User.object.all()
+    queryset = User.objects.all()
     serializer_class = UserSerializer
     # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
