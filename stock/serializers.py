@@ -10,13 +10,13 @@ class StockSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class CategorySerializer(serializers.HyperlinkedModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = "__all__"
 
 
-class EquipmentSerializer(serializers.HyperlinkedModelSerializer):
+class EquipmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Equipment
         fields = "__all__"
