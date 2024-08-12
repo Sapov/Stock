@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from rest_framework import routers
 from .views import StockViewSet, CategoryViewSet, EquipmentViewSet, UserViewSet
 app_name = 'stock'
@@ -13,5 +13,7 @@ router.register(r"users", UserViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("v1/", include(router.urls), name='v1'),
+    path('v1/auth/', include('djoser.urls')),
+    re_path(r'^auth/', include('djoser.urls.authtoken')),
 
 ]
