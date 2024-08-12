@@ -1,24 +1,18 @@
 from django.contrib.auth.models import User
 from rest_framework import viewsets
 from rest_framework.permissions import (
-    BasePermission,
     IsAuthenticated,
-    SAFE_METHODS,
     IsAdminUser,
 )
 
 from .models import Stock, Category, Equipment
+from .permissions import ReadOnly
 from .serializers import (
     StockSerializer,
     CategorySerializer,
     EquipmentSerializer,
     UserSerializer,
 )
-
-
-class ReadOnly(BasePermission):
-    def has_permission(self, request, view):
-        return request.method in SAFE_METHODS
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
@@ -36,7 +30,7 @@ class StockViewSet(viewsets.ModelViewSet):
 class EquipmentViewSet(viewsets.ModelViewSet):
     queryset = Equipment.objects.all()
     serializer_class = EquipmentSerializer
-    permission_classes = [IsAuthenticated, ReadOnly]
+    permission_classes = [IsAdminUser | IsAuthenticated, ReadOnly]
 
 
 class UserViewSet(viewsets.ModelViewSet):
