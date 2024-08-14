@@ -1,3 +1,5 @@
+SECRET_KEY="django-insecure-t6k^y--oaz95tlqh0!2ba_!-lekutu0dhl8e28a*xlbb-$%la1"
+
 POSTGRES_HOST=postgres_db
 POSTGRES_PORT=5432
 POSTGRES_USER=admin
