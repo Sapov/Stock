@@ -8,6 +8,7 @@ RUN apt update && apt -qy install vim cron
 RUN useradd -rms /bin/bash django && chmod 777 /opt /run
 WORKDIR /django
 RUN mkdir /django/static
+RUN mkdir /django/media
 RUN chmod -R django:django /django && chmod 755 /django
 COPY --chown=django:django . .
 RUN pip install -r requariments.txt
