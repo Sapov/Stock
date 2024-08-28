@@ -88,11 +88,11 @@ python -m pip install --upgrade pip && pip install -r requirements.txt
 
 4. Выполните миграции, загрузку данных, создание суперюзера и запустите приложение:
 ```bash
-python tree_menu/manage.py makemigrations && \
-python tree_menu/manage.py migrate && \
-python tree_menu/manage.py load_data && \
-python tree_menu/manage.py createsuperuser && \
-python tree_menu/manage.py runserver
+python manage.py makemigrations && \
+python manage.py migrate && \
+python manage.py load_data && \
+python manage.py createsuperuser && \
+python manage.py runserver
 ```
 Сервер запустится локально по адресу `http://127.0.0.1:8000/`
 
